@@ -7,7 +7,7 @@ readonly CUR_DIR=$(cd $(dirname ${BASH_SOURCE:-$0}); pwd)
 
 
 # 取当前时间的最后10个tag
-RELEASE_TAG_COUNT=10
+RELEASE_TAG_COUNT=3
 
 dist_dir=${CUR_DIR:=.}/dist/
 artifact_dir=/tmp/artifact/
@@ -50,6 +50,8 @@ while read tag pre;do
     --build-arg DISTRO=debian \
     --build-arg GIT_COMMIT="${DOCKER_COMPOSE_GITSHA}" \
     --output dist/ || : ;
+    mv dist/docker-compose-linux-arm64 dist/docker-compose-Linux-aarch64
+    echo "$(sha256sum dist/docker-compose-Linux-aarch64 | awk '{print $1}') *docker-compose-Linux-aarch64" > dist/docker-compose-Linux-aarch64.sha256
     ls -l dist;
     docker run --platform linux/arm64 \
     --rm -v $PWD/dist:/root/ \
