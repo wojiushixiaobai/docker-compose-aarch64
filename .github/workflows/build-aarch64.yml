@@ -47,7 +47,7 @@ jobs:
           bash  ${{ secrets.sh_op }} build.sh
 
       - name: Upload bin directory
-        uses: actions/upload-artifact@main
+        uses: actions/upload-artifact@v2
         if: steps.build.outcome == 'success'
         with:
           name: docker-compose-Linux
