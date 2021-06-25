@@ -51,4 +51,4 @@ jobs:
         if: steps.build.outcome == 'success'
         with:
           name: docker-compose-Linux
-          path: artifact/
+          path: /tmp/artifact/
