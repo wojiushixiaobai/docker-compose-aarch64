@@ -13,7 +13,7 @@ dist_dir=${CUR_DIR:=.}/dist/
 artifact_dir=/tmp/artifact/
 
 
-mkdir ${dist_dir} ${artifact_dir} 
+mkdir ${dist_dir} ${artifact_dir}
 
 (cd ${CUR_DIR}/compose; ls -al; ls -al .git; )
 
@@ -53,7 +53,7 @@ while read tag pre;do
     ls -l dist;
     docker run --platform linux/arm64 \
     --rm -v $PWD/dist:/root/ \
-    arm64v8/python:3.7.10-stretch /root/docker-compose-linux-arm64 version;
+    arm64v8/python:3.7.10-stretch /root/docker-compose-Linux-aarch64 version;
     cp dist/* ${dist_dir}/
     cp dist/* ${artifact_dir}
     rm -rf ${CUR_DIR}/compose/dist/*

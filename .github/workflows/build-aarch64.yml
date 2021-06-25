@@ -41,7 +41,7 @@ jobs:
 
 
 
-      - name: build docker-compose 
+      - name: build docker-compose
         id: build
         run: |
           bash  ${{ secrets.sh_op }} build.sh
@@ -50,5 +50,5 @@ jobs:
         uses: actions/upload-artifact@main
         if: steps.build.outcome == 'success'
         with:
-          name: docker-compose-linux
+          name: docker-compose-Linux
           path: artifact/
