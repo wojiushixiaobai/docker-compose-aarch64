@@ -1,4 +1,4 @@
-name: Docker Image CI
+name: Docker-Compose-Linux-aarch64
 on:
   push:
     branches: [ master ]
@@ -32,14 +32,10 @@ jobs:
         # env:
         #   gh_token: ${{ secrets.gh_token }}
 
-
-
       - name: install docker
         uses: docker-practice/actions-setup-docker@master
         # this will run and buildx
         # docker run --rm --privileged ghcr.io/dpsigs/tonistiigi-binfmt:latest --install all
-
-
 
       - name: build docker-compose
         id: build

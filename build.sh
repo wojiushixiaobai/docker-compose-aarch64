@@ -7,7 +7,7 @@ readonly CUR_DIR=$(cd $(dirname ${BASH_SOURCE:-$0}); pwd)
 
 
 # 取当前时间的最后10个tag
-RELEASE_TAG_COUNT=3
+RELEASE_TAG_COUNT=6
 
 dist_dir=${CUR_DIR:=.}/dist/
 artifact_dir=/tmp/artifact/
